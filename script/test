@@ -63,9 +63,8 @@ if (process.platform === 'darwin') {
   throw new Error('Running tests on this platform is not supported.')
 }
 
-const atomHomeDirPath = temp.mkdirSync('atom-test')
-
 function prepareEnv (suiteName) {
+  const atomHomeDirPath = temp.mkdirSync(suiteName)
   const env = Object.assign({}, process.env, {ATOM_HOME: atomHomeDirPath})
 
   if (process.env.TEST_JUNIT_XML_ROOT) {
